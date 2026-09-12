@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RTrigonometria</title>
+<style>
+:root {
+  --bg:#f6f7fb;
+  --paper:#ffffff;
+  --ink:#182033;
+  --muted:#6b7280;
+  --accent:#4f46e5;
+  --accent-soft:#eef0ff;
+  --line:#e5e7eb;
+  --formula:#f8f9ff;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:
+    radial-gradient(circle at 15% 0%, #e8ebff 0, transparent 32rem),
+    radial-gradient(circle at 90% 10%, #edf5ff 0, transparent 28rem),
+    var(--bg);
+  color:var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height:1.65;
+}
+.wrapper { max-width:980px; margin:0 auto; padding:34px 20px 70px; }
+.hero {
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  padding:44px clamp(26px, 5vw, 58px);
+  color:white;
+  background:linear-gradient(135deg,#25206f,#5b5ce2 62%,#7586f2);
+  box-shadow:0 24px 60px rgba(45,43,130,.20);
+  margin-bottom:26px;
+}
+.hero:after {
+  content:"";
+  position:absolute; width:220px; height:220px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  right:-55px; top:-70px;
+}
+.eyebrow {
+  text-transform:uppercase; letter-spacing:.15em; font-size:.75rem;
+  font-weight:800; opacity:.78;
+}
+h1 {
+  font-size:clamp(2.2rem,6vw,4.2rem);
+  line-height:1.02; margin:10px 0 12px; letter-spacing:-.04em;
+}
+.subtitle { margin:0; max-width:700px; font-size:1.05rem; opacity:.9; }
+.badge {
+  display:inline-block; margin-top:20px; padding:7px 12px; border-radius:999px;
+  background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.2);
+  font-size:.82rem;
+}
+.grid { display:grid; gap:18px; }
+.card {
+  position:relative; background:var(--paper); border:1px solid var(--line);
+  border-radius:20px; padding:28px 30px 30px 74px;
+  box-shadow:0 10px 28px rgba(16,24,40,.055);
+}
+.section-number {
+  position:absolute; left:22px; top:27px; width:34px; height:34px;
+  display:grid; place-items:center; border-radius:10px;
+  background:var(--accent-soft); color:var(--accent);
+  font-size:.75rem; font-weight:900;
+}
+h2 { margin:0 0 18px; font-size:1.45rem; letter-spacing:-.02em; }
+.content > div { margin:8px 0; }
+.formula {
+  padding:11px 14px; border:1px solid #e7e9f7; background:var(--formula);
+  border-radius:10px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size:.96rem; overflow-x:auto; color:#20254a;
+}
+.footer {
+  margin-top:22px; padding:18px 20px; border-radius:16px;
+  background:#fff; border:1px solid var(--line); color:var(--muted); font-size:.88rem;
+}
+@media (max-width:600px) {
+  .wrapper { padding:18px 12px 40px; }
+  .card { padding:24px 18px 24px 58px; }
+  .section-number { left:16px; }
+}
+@media print {
+  body { background:white; }
+  .wrapper { max-width:none; padding:0; }
+  .hero { box-shadow:none; break-after:avoid; }
+  .card { box-shadow:none; break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+<main class="wrapper">
+  <header class="hero">
+    <div class="eye">Resum</div>
+    <h1>Trigonometria</h1>
+    <p class="subtitle"></p>
+  </header>
+  <div class="grid">
+      <section class="card">
+        <div class="section-number">01</div>
+        <h2>Raons trigonomètriques d’un angle</h2>
+        <div class="content"><div class="">
+        <img src="Raons.jpg"></strong><br><span></span>
+      </section>
+      <section class="card">
+        <div class="section-number">02</div>
+        <h2>Fórmules fonamentals:</h2>
+<div class="content"><div class="">
+        <img src="form_.JPG"></strong><br><span></span>
+      </section>
+      <section class="card">
+        <div class="section-number">03</div>
+        <h2>Teorema del sinus</h2>
+        <div class="content"></div>
+         <img src="Tsinus_.jpg"></strong><br><span></span>
+      </section>
+    
+      <section class="card">
+        <div class="section-number">04</div>
+        <h2>Teorema del cosinus</h2>
+        <div class="content"></div>
+         <img src="Tcosinus_.jpg"></strong><br><span></span>
+      </section>
+    
+      <section class="card">
+        <div class="section-number">05</div>
+        <h2>Cosinus de la suma</h2>
+        <img src="SumaCosinus_.jpg"></strong><br><span></span>
+    
+      </section>
+    <section class="card">
+        <div class="section-number">06</div>
+        <h2>Altres fórmules de sumes i restes d'angles</h2>
+        <div class="content"><div class="formula">Cos (α-β) = cos(α)·cos(-β)−sin (α)·sin(-β)  <br>Cos (α-β) = cos(α)·cos(β) − sin (α)·(-sin(β)) <br>Cos (α-β) = cos(α)·cos(β) + sin (α)·sin(β)</div>
+        <div class="formula">sin (α+β) = cos(90 - α - β) = cos (90-α )·cos(β) + sin (90-α)·sin(β)   <br> sin (α+β) = sin (α )·cos(β) + cos (α)·sin(β)</div>
+        <div class="formula">sin (α-β) = sin(α)·cos(-β) + cos(α)·sin(-β) = sin (α)·cos(β) + cos (α)·(-sin(β)) <br>  sin (α-β) = sin (α)·cos(β) - cos (α)· sin(β)</div>
+        <div class="formula">cos (2α) = cos(α)·cos(α) − sin(α)·sin(α) = cos<sup>2</sup>(α) − sin<sup>2</sup>(α)</div>
+        <div class="formula">sin (2α) = sin (α )·cos(α) + cos (α)·sin(α) = 2· sin (α )·cos(α)</div><div class="">
+      </section>
+  </div>
+
+</main>
+</body>
+</html>
