@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trigonometria</title>
+  <title>Rectes al pla</title>
   <style>
     :root {
       --bg: #f6f7fb;
@@ -27,15 +27,7 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
       line-height: 1.65;
     }
-    
-    /* Contenidor principal que fixa l'amplada màxima de TOTS els elements */
-    .wrapper { 
-      max-width: 980px; 
-      width: 100%;
-      margin: 0 auto; 
-      padding: 34px 20px 70px; 
-    }
-
+    .wrapper { max-width: 980px; margin: 0 auto; padding: 34px 20px 70px; }
     .hero {
       position: relative;
       overflow: hidden;
@@ -46,7 +38,6 @@
                   url('Imatges/FonsWeb3.jpg') center/cover no-repeat;
       box-shadow: 0 24px 60px rgba(45, 43, 130, .20);
       margin-bottom: 26px;
-      width: 100%;
     }
     .hero::after {
       content: "";
@@ -54,27 +45,19 @@
       border: 1px solid rgba(255, 255, 255, .18);
       right: -55px; top: -70px;
     }
+    .eye {
+      text-transform: uppercase; letter-spacing: .15em; font-size: .75rem;
+      font-weight: 800; opacity: .78;
+    }
     h1 {
       font-size: clamp(2.2rem, 6vw, 4.2rem);
       line-height: 1.02; margin: 10px 0 12px; letter-spacing: -.04em;
     }
-    
-    /* Disposició de les targetes */
-    .grid { 
-      display: flex;
-      flex-direction: column;
-      gap: 18px; 
-      width: 100%;
-    }
-    
+    .grid { display: grid; gap: 18px; }
     .card {
-      position: relative; 
-      background: var(--paper); 
-      border: 1px solid var(--line);
-      border-radius: 20px; 
-      padding: 28px 30px 30px;
+      position: relative; background: var(--paper); border: 1px solid var(--line);
+      border-radius: 20px; padding: 28px 30px 30px 30px;
       box-shadow: 0 10px 28px rgba(16, 24, 40, .055);
-      width: 100%;
     }
     h2 { margin: 0 0 18px; font-size: 1.45rem; letter-spacing: -.02em; }
     h3, h4 { font-weight: normal; margin: 5px 0; }
@@ -82,52 +65,25 @@
     .callout {
       background-color: #ffffff;
       border-left: 5px solid #0066cc;
-      padding: 20px 24px;
+      padding: 15px;
+      margin: 10px 0;
     }
     .callout h2 { color: #0047AB; }
     
     .indent-list { margin-left: 2cm; }
     .no-bullets { list-style-type: none; padding-left: 0; }
-    
-    .formulas {
-      margin-top: 15px;
-      font-family: "Times New Roman", Times, serif;
-      font-style: italic;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-    .fraction {
-      display: inline-block;
-      vertical-align: middle;
-      text-align: center;
-      font-style: italic;
-    }
-    .fraction > span { display: block; }
-    .fraction span.bottom { border-top: 1px solid black; }
-    
-    .formula-box {
-      padding: 11px 14px; border: 1px solid #e7e9f7; background: var(--formula);
-      border-radius: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: .96rem; overflow-x: auto; color: #20254a; margin-bottom: 8px;
-    }
 
-    /* Ajust del botó d'impressió */
-    .btn-imprimir, button {
-      border: 0;
-      border-radius: 12px;
-      background: #4f46e5;
-      color: white;
-      font: inherit;
-      font-weight: 700;
-      padding: 12px 18px;
-      cursor: pointer;
-      margin: 0 0 20px;
-      box-shadow: 0 8px 20px #4f46e526;
-      display: inline-block;
+    .formula-box {
+     
+      background-color: #e2f0fd;
+      border-left: 4px solid var(--accent-color);
+       border-left: 4px solid #3b82f6; /* Aquesta línia fa el destacat vertical */
+      padding: 10px 15px;
+      margin: 10px 0;
+      border-radius: 0 4px 4px 0;
     }
-    button:hover, .btn-imprimir:hover { background: #3730a3; }
+button{border:0;border-radius:12px;background:#4f46e5;color:white;font:inherit;font-weight:700;padding:12px 18px;cursor:pointer;margin:0 0 20px;box-shadow:0 8px 20px #4f46e526}
+button:hover{background:#3730a3}
 
     @media (max-width: 600px) {
       .wrapper { padding: 18px 12px 40px; }
@@ -145,186 +101,606 @@
 
 <main class="wrapper">
   <header class="hero">
-    <h1>Trigonometria</h1>
+    <h1>Rectes al pla</h1>
   </header>
-
-  <!-- BOTÓ D'IMPRESSIÓ (Només es veurà a la pantalla) -->
+<!-- BOTÓ D'IMPRESSIÓ (Només es veurà a la pantalla) -->
     <button class="btn-imprimir" onclick="window.print()">
         🖨️ Descarrega el temari en PDF
     </button>
-
+    
   <div class="grid">
     <!-- Secció 1 -->
     <section class="card">
-      <h2>1. Unitats angulars</h2>
+      <h2> 1. <a href="https://www.geogebra.org/m/wwbwpsus">  Determinada per: </a> </h2>
       <div>
-        <h4>El radian o radiant és una unitat del Sistema Internacional d'Unitats (SI), definida com l'angle amb un arc de circumferència de longitud igual al radi r d'aquesta.</h4> 
-        <h4>El º, grau sexagesimal o degree, és 
-          <math>
-            <mfrac>
-              <mn>1</mn>
-              <mn>360</mn>
-            </mfrac>
-          </math> d'un angle complet.
-        </h4>
-        <br>
-        <img src="Imatges\rad.png" alt="Radians">
-        <h3>Angle complet = 360º = 2&pi; rad ;          Angle pla = 180º = &pi; rad</h3>
+        <h4>Una recta a l'espai bidimensional queda definida de manera única mitjançant un punt i una direcció.</h4>
+        <ul style="indent-list">
+        <li> 
+        <strong>Punt:</strong> 
+            <div class="formula-box">  <ul> 
+                                    <li> A(a₁, a₂) </div></li> 
+          <li> 
+            <strong>Direcció:</strong>  
+    <div class="formula-box">
+    <ul>
+              <li> <strong>Altre punt:      </strong> B(b₁, b₂)</li>
+              <li><strong>Vector director:         </strong> 
+  <math>
+    <mover>
+      <mi>v</mi>
+      <mo>&#x2192;</mo>
+    </mover>
+    <mo>=</mo>
+    <mo>(</mo>
+    <msub><mi>v</mi><mn>1</mn></msub>
+    <mo>,</mo>
+    <msub><mi>v</mi><mn>2</mn></msub>
+    <mo>)</mo>
+    <mo>&rarr;</mo>
+    <mover>
+      <mi>v</mi>
+      <mo>&#x2192;</mo>
+    </mover>
+    <mo>=</mo>
+    <mover>
+      <mrow><mi>A</mi><mi>B</mi></mrow>
+      <mo>&#x2192;</mo>
+    </mover>
+    <mo>=</mo>
+    <mo>(</mo><mn>1</mn><mo>,</mo><mi>m</mi><mo>)</mo>
+  </math>
+</p> </li>
+              <li><strong>Pendent</strong>  (s'utilitza a les equacions explícita i punt/pendent) : 
+  <math>
+    <mi>m</mi>
+    <mo>=</mo>
+    <mtext>tg</mtext>
+    <mi>(&alpha;)</mi>
+    <mo>=</mo>
+    <mfrac>
+      <msub><mi>v</mi><mn>1</mn></msub>
+      <msub><mi>v</mi><mn>2</mn></msub>
+    </mfrac>
+  </math>
+</p></em></li>
+              <li><strong>Angle  <mi>(&alpha;)</mi> </strong>que forma amb la direcció horitzontal</li>
+              <li>Representació <strong>gràfica</strong></li> </div>
+            </ul>
+          </li>
+        </ul>
       </div>
     </section>
 
     <!-- Secció 2 -->
     <section class="card">
-      <h2>2. Raons trigonomètriques d’un angle: sinus (sin), cosinus (cos) i tangent (tg o tan). </a></h2>
-        <h4>Una raó és una proporció entre dos valors.  </h4> 
-         <h3>2.1 <a href="https://www.geogebra.org/m/ghqrvehn">Raons trigonomètriques al triangle rectangle. </a></h3>
-        <img src="Imatges\Raons_TR.jpg" alt="Raons trigonomètriques">
-      <h3>2.2 <a href="https://www.geogebra.org/m/fcvkfmr9">Raons trigonomètriques a una ciscumferència de radi R centrada a l'origen</a></h3>
-      <h4>Una raó és una proporció entre dos valors. Definim les raons en funció del punt de tall del segon costat de l'angle amb la circumferència i el radi d'aquesta.  </h4> 
-        <img src="Imatges\Raons.jpg" alt="Raons trigonomètriques">
-      <div>
-        <h3>2.3 <a href="https://www.geogebra.org/m/d83n6qkd">Raons trigonomètriques a una ciscumferència de radi 1 centrada a l'origen</a></h3>
-        <h4>Quan el radi de la circumferència és 1, circumferència trigonomètrica, podem representar gràficament el valor de les raons.  </h4> 
-        <img src="Imatges\Raons_CU.jpg" alt="Raons trigonomètriques">
-        <h3> 💡  Es pot veure que el sinus i el cosinus de qualsevol angle és un valor entre -1 i 1 i els signes de cada raó als diferents quadrants.</h3> <br>
-          <h3> 💡  <a href="https://www.geogebra.org/m/gwmqwqev" > Podem trobar angles amb la mateixa raó o oposada als diferents quadrants </a></h3> 
+      <h2>2. <a href="https://www.geogebra.org/graphing/bhmsjerd">  Expressada per una equació </a> </h2>
+ <ul>
+       <li><h4><strong>Vectorial:</strong></h4>
+        <div class="formula-box">
+<math >
+    <mrow>
+      <mo>(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>)</mo>
+      <mo>=</mo>
+      <mo>(</mo><msub><mi>a</mi><mn>1</mn></msub><mo>,</mo><msub><mi>a</mi><mn>2</mn></msub><mo>)</mo>
+      <mo>+</mo>
+      <mi>k</mi>
+      <mo>(</mo><msub><mi>v</mi><mn>1</mn></msub><mo>,</mo><msub><mi>v</mi><mn>2</mn></msub><mo>)</mo>
+    </mrow>
+  </math></div>
+      <li> <h4><strong>Paramètriques:</strong></h4>
+  <math class="formula-box">
+    <mrow>
+      <mo>{</mo>
+      <mtable columnalign="left">
+        <mtr>
+          <mtd>
+            <mi>x</mi><mo>=</mo><msub><mi>a</mi><mn>1</mn></msub><mo>+</mo><mi>k</mi><mo>&middot;</mo><msub><mi>v</mi><mn>1</mn></msub>
+          </mtd>
+        </mtr>
+        <mtr>
+          <mtd>
+            <mi>y</mi><mo>=</mo><msub><mi>a</mi><mn>2</mn></msub><mo>+</mo><mi>k</mi><mo>&middot;</mo><msub><mi>v</mi><mn>2</mn></msub>
+          </mtd>
+        </mtr>
+      </mtable>
+    </mrow>
+  </math>
 
+       <li>  <h4><strong>Contínua:</strong></h4>
+        <div class="formula-box">
+          <p>
+  <math displaystyle="true">
+    <mfrac>
+      <mrow>
+        <mi>x</mi>
+        <mo>-</mo>
+        <msub><mi>a</mi><mn>1</mn></msub>
+      </mrow>
+      <msub><mi>v</mi><mn>1</mn></msub>
+    </mfrac>
+    <mo>=</mo>
+    <mfrac>
+      <mrow>
+        <mi>y</mi>
+        <mo>-</mo>
+        <msub><mi>a</mi><mn>2</mn></msub>
+      </mrow>
+      <msub><mi>v</mi><mn>2</mn></msub>
+    </mfrac>
+  </math>
+</p>
+</div>
+
+        <li> <h4><strong>General / Implícita:</strong></h4>
+        <div class="formula-box">
+  <p>
+    <math displaystyle="true">
+      <mrow>
+        <mi>A</mi><mi>x</mi>
+        <mo>+</mo>
+        <mi>B</mi><mi>y</mi>
+        <mo>+</mo>
+        <mi>C</mi>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mrow>
+      <mspace width="1em" />
+      <mo>|</mo>
+      <mspace width="1em" />
+      <mrow>
+        <mover><mi>v</mi><mo>→</mo></mover>
+        <mo>=</mo>
+        <mo>(</mo>
+        <mo>-</mo><mi>B</mi>
+        <mo>,</mo>
+        <mi>A</mi>
+        <mo>)</mo>
+      </mrow>
+      <mspace width="1em" />
+      <mo>|</mo>
+      <mspace width="1em" />
+      <mrow>
+        <mi>m</mi>
+        <mo>=</mo>
+        <mo>-</mo>
+        <mfrac>
+          <mi>A</mi>
+          <mi>B</mi>
+        </mfrac>
+      </mrow>
+    </math>
+  </p>
+</div>
+
+        <li> <h4><strong>Explícita:</strong></h4>
+        <div class="formula-box">
+  <p>
+    <math displaystyle="true">
+      <mi>y</mi>
+      <mo>=</mo>
+      <mi>m</mi>
+      <mo>·</mo>
+      <mi>x</mi>
+      <mo>+</mo>
+      <mi>n</mi>
+    </math>
+  </p>
+</div>
+        <li> <h4><strong>Punt/Pendent:</strong></h4>
+        <div class="formula-box">
+  <p>
+    <math displaystyle="true">
+      <mi>y</mi>
+      <mo>-</mo>
+      <msub><mi>a</mi><mn>2</mn></msub>
+      <mo>=</mo>
+      <mi>m</mi>
+      <mo>·</mo>
+      <mo>(</mo>
+      <mi>x</mi>
+      <mo>-</mo>
+      <msub><mi>a</mi><mn>1</mn></msub>
+      <mo>)</mo>
+    </math>
+  </p>
+</div>
+
+       <li>  <h4><strong>Canònica:</strong></h4>
+        <div class="formula-box">
+          <p>
+    <math displaystyle="true">
+      <mfrac>
+        <mi>x</mi>
+        <mi>p</mi>
+      </mfrac>
+      <mo>+</mo>
+      <mfrac>
+        <mi>y</mi>
+        <mi>q</mi>
+      </mfrac>
+      <mo>=</mo>
+      <mn>1</mn>
+      <mspace width="1em" />
+      <mo>| punts de tall amb els eixos</mo>
+      <mspace width="1em" />
+      <mrow>
+        <mi>P</mi>
+        <mo>=</mo>
+        <mo>(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mn>0</mn>
+        <mo>)</mo>
+      </mrow>
+      <mo>,</mo>
+      <mspace width="0.5em" />
+      <mrow>
+        <mi>Q</mi>
+        <mo>=</mo>
+        <mo>(</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mi>q</mi>
+        <mo>)</mo>
+      </mrow>
+    </math>
+  </p>
+</div>
       </div>
     </section>
 
+    <!-- Bloc Destacat 1 -->
+    <div class="card callout">
+      <h2>Un punt pertany a una recta</h2>
+      <h4>Un punt P(x₀, y₀) pertany a una recta si al substituir les seves coordenades a l'equació de la recta, la igualtat és certa.</h4>
+    </div>
+<!-- Bloc Destacat 1 -->
+    <div class="card callout">
+      <h2>Informació sobre la recta</h2>
+      <h4>A partir d'un punt i la direcció podem escriure una equació de la recta i d'una equació podem passar a qualsevol altra.</h4>
+      <h4>A partir d'una equació podem trovar punts, vector director, pendent, angle amb OX+ i punts de tall amb els eixos.</h4>
+    </div>
     <!-- Secció 3 -->
     <section class="card">
-      <h2>3. Fórmules fonamentals</h2>
-      <div>
-        <img src="Imatges\form_.JPG" alt="Fórmules fonamentals">
-        <h4>Aquestes fórmules les pots demostrar amb el teorema de Pitàgores i la definició de les raons al triangle rectangle.</h4> 
+      <h2>3. Projecció ortogonal i Simètric</h2>
+      <ul>
+      <li><h4><strong>A' : Projecció ortogonal d'un punt A sobre una recta r:</strong> Intersecció de la recta donada amb una recta ortogonal que passi pel punt A (obtenint el punt A').</h4>
+<div class="formula-box">
+  <p>
+    <math displaystyle="true">
 
-      </div>
+        <mo>{</mo>
+        <mtable columnalign="left">
+          <mtr>
+            <td padding-bottom="0.5em">
+              <mi>r</mi>
+              <mo>:</mo>
+              <mspace width="0.5em" />
+              <mi>A</mi><mi>x</mi>
+              <mo>+</mo>
+              <mi>B</mi><mi>y</mi>
+              <mo>+</mo>
+              <mi>C</mi>
+              <mo>=</mo>
+              <mn>0</mn>
+            </td>
+          </mtr>
+          <mtr>
+            <td>
+              <mi>s</mi>
+              <mo>⊥</mo>
+              <mi>r</mi>
+              <mo>,</mo>
+              <mspace width="0.5em" />
+              <mi>A</mi>
+              <mo>(</mo>
+              <msub><mi>a</mi><mn>1</mn></msub>
+              <mo>,</mo>
+              <msub><mi>a</mi><mn>2</mn></msub>
+              <mo>)</mo>
+              <mo>∈</mo>
+              <mi>s</mi>
+              <mspace width="1em" />
+              <mo>⇒</mo>
+              <mspace width="1em" />
+              <mi>s</mi>
+              <mo>:</mo>
+              <mspace width="0.5em" />
+              <mi>B</mi>
+              <mo>(</mo>
+              <mi>x</mi>
+              <mo>-</mo>
+              <msub><mi>a</mi><mn>1</mn></msub>
+              <mo>)</mo>
+              <mo>-</mo>
+              <mi>A</mi>
+              <mo>(</mo>
+              <mi>y</mi>
+              <mo>-</mo>
+              <msub><mi>a</mi><mn>2</mn></msub>
+              <mo>)</mo>
+              <mo>=</mo>
+              <mn>0</mn>
+            </td>
+          </mtr>
+        </mtable>
+      </mrow>
+    </math>
+  </p>
+</div>
+
+          
+        </li>
+        <li>
+          <h4><strong>A'': Simètric d'un punt A respecte una recta r:</strong> Punt A'' que verifica:  </h4> 
+          <div class="formula-box"> <p>
+
+    <math displaystyle="true">
+      <mover>
+        <mrow>
+          <mi>A</mi>
+          <msup><mi>A</mi><mo>′</mo></msup>
+        </mrow>
+        <mo>→</mo>
+      </mover>
+      <mo>=</mo>
+      <mover>
+        <mrow>
+          <msup><mi>A</mi><mo>′</mo></msup>
+          <msup><mi>A</mi><mo>′′</mo></msup>
+        </mrow>
+        <mo>→</mo>
+      </mover>
+      <mspace width="1em" />
+              <mo>⇒</mo>
+        <msup><mi>A</mi><mo>′′</mo></msup>
+        <mo>=</mo>
+        <mi>A</mi>
+        <mo>+</mo>
+      <mover>
+        <mrow>
+          <msup><mi>A</mi></msup>
+          <msup><mi>A</mi><mo>′</mo></msup>
+        </mrow>
+        <mo>→</mo>
+      </mover>
+    </math>
+  </p>
+</div>
+        </li>
+      </ul>
     </section>
-
-    <!-- Bloc Destacat -->
-    <div class="card callout">
-      <h2>A partir de la definició de les raons puc demanar:</h2>
-      <ol class="indent-list">
-        <li>Donat un angle situar aquest en un quadrant o un eix &rarr; Representar gràficament les seves raons.</li>
-        <li>
-          Donat una raó d’un angle &rarr; Determinar els angles que tenen aquest raó
-          <p style="font-weight: normal;">(un amb la calculadora i un altre canviant de quadrant gràficament)</p>
-        </li>
-        <li>
-          Donat una raó d’un angle i el signe d’un altra o el quadrant &rarr; Determinar l’angle.
-          <p style="font-weight: normal;">(potser només amb la calculadora o canviant de quadrant gràficament)</p>
-        </li>
-        <li>Relacionar les raons d’un angle qualsevol amb un del primer quadrant.</li>
-        <li>
-          Donat una raó trigonomètrica i el quadrant &rarr; Calcular la resta de raons utilitzant les fórmules fonamentals de la trigonometria.
-          <div class="formulas">
-            <div>
-              tan &alpha; = 
-              <div class="fraction">
-                <span class="top">sin &alpha;</span>
-                <span class="bottom">cos &alpha;</span>
-              </div>
-            </div>
-            <div>;</div>
-            <div>sin<sup>2</sup> &alpha; + cos<sup>2</sup> &alpha; = 1</div>
-          </div>
-        </li>
-      </ol>
-    </div>
 
     <!-- Secció 4 -->
     <section class="card">
-      <h2>4. Determinació de triangles</h2>
-      <div>
-      <h4> Un triangle està determinat si amb les dades que em donen es pot construir de manera única. </h4>  <gr>
+      <h2>4. Posició recta r -punt A</h2>
+       <ul>
+       <li><h4><strong>El punt pertany a la recta </strong></h4>
+        <ul>
+              <li>Al substituir el punt, es verifica l'equació de la recta.</li>
+              <li>La distància és 0.</li>
+        </ul>
+        <li><h4><strong>El punt no pertany a la recta</strong></h4>
+          <ul>
+                          <li>Al substituir el punt, no es verifica l'equació de la recta (igualtat falsa).</li>
+              <li>La distància és igual a la distància entre el punt i la seva projecció ortogonal sobre la recta. També es pot calcular utilitzant la fòrmula següent:</li>
+             </ul>
+<div class="formula-box">
+  <p>
+    <math displaystyle="true">
+      <mrow>
 
-<h4> Si no està determinat pot ser que no es pugui construir o que hi hagi més d’una solució. </h4> <gr></gr>
-
-      <h4> Per determinar un triangle necessitem coneixer:  </h4>
-        <ol class="indent-list no-bullets">
-          <li>
-            <article><h4>a) <a href="https://www.geogebra.org/m/mrkhj9q5"> Els tres costats.</a></h4><p><img src="Imatges\3costats_.jpg" alt="3 costats"></p></article>
-          </li>
-          <li>
-            <article><h4>b) <a href="https://www.geogebra.org/material/copy/id/bgezujks"> Dos costats i l’angle que formen. </a> </h4><p><img src="Imatges\2costats_A_.jpg" alt="2 costats i angle"></p></article>
-          </li>
-          <li>
-            <article><h4>c) <a href="https://www.geogebra.org/m/rshwnb5j"> Dos costats i l’angle oposat a un d’aquests costats. </a> </h4><p><img src="Imatges\2costats_A2_.jpg" alt="2 costats i angle oposat"></p></article>
-          </li>
-          <li>
-            <article><h4>d) <a href="https://www.geogebra.org/m/bjgdqcsj"> Un costat i dos angles. </a></h4><p><img src="Imatges\1costats_.jpg" alt="1 costat i 2 angles"></p></article>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- Secció 5 -->
-    <section class="card">
-      <h2>5.<a href="https://www.geogebra.org/m/jrcwg4cn"> Teorema del sinus </a> </h2> <h3>El quocient entre un costat d'un triangle i el sinus de l’angle oposat és constant.</h3>
-      <div>
-        <img src="Imatges\Tsinus_.jpg" alt="Teorema del sinus">
-      </div>
-    </section>
-
-    <!-- Secció 6 -->
-    <section class="card">
-      <h2>6.<a href="https://www.geogebra.org/m/qx5xdaau">  Teorema del cosinus </a> </h2> <h3>El quadrat d'un costat d'un triangle és igual a la suma dels quadrats dels altres
-dos menys el doble del producte d’aquests dos costats pel cosinus de l’angle oposat al primer. </h3>
-      <div>
-        <img src="Imatges\Tcosinus_.jpg" alt="Teorema del cosinus">
-      </div>
-    </section>
-<!-- Bloc Destacat -->
-    <div class="card callout">
-      <h2> Resolució de triangles </h2>
-        
-        <h4>En geometria, la resolució d'un triangle consisteix en la determinació dels diferents elements del triangle (longituds dels costats, mesura dels angles) a partir d'alguns altres.
-        </h4> <gr></gr>
-        <ol class="indent-list no-bullets">
-      <ol >
-          <h2>Puc demanar</h2>
-          <li>
-            <article><h4>Demostrar el teoremes del sinus i el cosinus</h4>
- <li>
-            <article><h4>Demanar si pots determinar un triangle</h4>
- <li>
-            <article><h4>Resoldre un o més triangles utilitzant els teoremes del sinus i el cosinus</h4>
-<li>
-            <article><h4>Resoldre problemes on hagis de resoldre un o més triangles</h4>
-
+        <!-- Fórmula de la distància -->
+         <mtext>dist</mtext>
+        <mi>(</mi>
+        <mi>A</mi>
+        <mo>,</mo>
+        <mspace width="0.2em" />
+        <mi>r</mi>
+        <mi>)</mi>
+        <mo>=</mo>
+        <mtext>dist</mtext>
+       <mo>(</mo>
+       <mi>A</mi><mi>(</mi>
+        <msub><mi>x</mi><mn>0</mn></msub>
+        <mo>,</mo>
+        <mspace width="0.2em" />
+        <msub><mi>y</mi><mn>0</mn></msub>
+        <mi>)</mi>
+        <mo>,</mo>
+        <mspace width="0.2em" />
+        <mi>r</mi>
+        <mo>:</mo>
+              <mspace width="0.5em" />
+              <mi>A</mi><mi>x</mi>
+              <mo>+</mo>
+              <mi>B</mi><mi>y</mi>
+              <mo>+</mo>
+              <mi>C</mi>
+              <mo>=</mo>
+              <mn>0</mn>
+        <mo>)</mo>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mo>|</mo>
+            <mi>A</mi><mo>·</mo><msub><mi>x</mi><mn>0</mn></msub>
+            <mo>+</mo>
+            <mi>B</mi><mo>·</mo><msub><mi>y</mi><mn>0</mn></msub>
+            <mo>+</mo>
+            <mi>C</mi>
+            <mo>|</mo>
+          </mrow>
+          <msqrt>
+            <mrow>
+              <msup><mi>A</mi><mn>2</mn></msup>
+              <mo>+</mo>
+              <msup><mi>B</mi><mn>2</mn></msup>
+            </mrow>
+          </msqrt>
+        </mfrac>
+      </mrow>
+    </math>
+  </p>
+</div>
+            </ul>
+          </article>
         </li>
-        
+       
       </ol>
-    </div>
-
-    <!-- Secció 7 -->
-    <section class="card">
-      <h2>7. Altres fórmules de trigonometria amb demostració.</h2>
-      <ol class="indent-list no-bullets">
-          <li>
-            <article><h4>a) Cosinus de la suma.</h4><p><img src="Imatges\SumaCosinus_.jpg" ></p></article>
-          </li>
-          <li>
-            <article><h4>b) Cosinus de la resta. </h4><p>
-             <div class="formula-box">cos(&alpha;&minus;&beta;) = cos(&alpha;)&middot;cos(&minus;&beta;) &minus; sin(&alpha;)&middot;sin(&minus;&beta;)<br>cos(&alpha;&minus;&beta;) = cos(&alpha;)&middot;cos(&beta;) + sin(&alpha;)&middot;sin(&beta;)</div> 
-          </li>
-          <li>
-            <article><h4>c) Sinus de la suma.</h4>
-              <div class="formula-box">sin(&alpha;+&beta;) = cos(90&minus;&alpha;&minus;&beta;) = cos(90&minus;&alpha;)&middot;cos(&beta;) + sin(90&minus;&alpha;)&middot;sin(&beta;)<br>sin(&alpha;+&beta;) = sin(&alpha;)&middot;cos(&beta;) + cos(&alpha;)&middot;sin(&beta;)</div>
-          </li>
-          <li>
-            <article><h4>d) Sinus de la resta.</h4>
-               <div class="formula-box">sin(&alpha;&minus;&beta;) = sin(&alpha;)&middot;cos(&beta;) &minus; cos(&alpha;)&middot;sin(&beta;)</div>
-          </li>
-          <li>
-            <article><h4>e) Sinus i cosinus de l'angle doble.</h4>
-              <div class="formula-box">cos(2&alpha;) = cos<sup>2</sup>(&alpha;) &minus; sin<sup>2</sup>(&alpha;)</div>
-        <div class="formula-box">sin(2&alpha;) = 2&middot;sin(&alpha;)&middot;cos(&alpha;)</div>
-          </li>
-        </ol>
-   
     </section>
+     <!-- Secció 4 -->
+    <section class="card">
+      <h2>5. Posició relativa de dues rectes</h2>
+    <ul>
+       <li><h4><strong>Coincidents</strong></h4>
+            <ul>
+              <li>Comprovar que tenen la mateixa direcció i un punt en comú.</li>
+              <li>El sistema format per les dues rectes té infinites solucions (0 = 0).</li>
+              <li>La intersecció és tota la recta.</li>
+              <li>L'angle que formen és 0°.</li>
+              <li>La distància és 0.</li>
+            </ul>
+          </article>
+        </li>
+        <li>
+          <article>
+           <h4><strong>Paral·leles</strong></h4>
+            <ul>
+              <li>Comprovar que tenen la mateixa direcció i un punt d'una recta no pertany a l'altra.</li>
+              <li>El sistema format per les dues rectes no té solució (0 = S).</li>
+              <li>No hi ha intersecció.</li>
+              <li>L'angle que formen és 0°.</li>
+              <li>La distància és igual a: <strong>dist(Punt d'una recta, altra recta)</strong>.</li>
+               </ul>
+<div class="formula-box">
+  <p>
+    
+              <h4><strong>Distància entre dues rectes paral·leles r i s:</strong></h4>
+
+    <math displaystyle="true">
+      <mrow>
+        <!-- Definicions prèvies -->
+        <mi>r</mi>
+        <mo>:</mo>
+        <mspace width="0.3em" />
+        <mi>a</mi><mi>x</mi>
+        <mo>+</mo>
+        <mi>b</mi><mi>y</mi>
+        <mo>+</mo>
+        <mi>c</mi>
+        <mo>=</mo>
+        <mn>0</mn>
+        
+        <mspace width="1.2em" />
+        <mo>|</mo>
+        <mspace width="1.2em" />
+
+        <msub><mi>P</mi><mi>s</mi></msub>
+        <mo>=</mo>
+        <mi>(</mi>
+        <msub><mi>x</mi><mn>0</mn></msub>
+        <mo>,</mo>
+        <mspace width="0.2em" />
+        <msub><mi>y</mi><mn>0</mn></msub>
+        <mi>)</mi>
+
+        <mspace width="1.2em" />
+        <mo>⇒</mo>
+        <mspace width="1.2em" />
+
+        <!-- Fórmula de la distància -->
+        <mtext>dist</mtext>
+        <mi>(</mi>
+        <mi>r</mi>
+        <mo>,</mo>
+        <mspace width="0.2em" />
+        <mi>s</mi>
+        <mi>)</mi>
+        <mo>=</mo>
+        <mtext>dist</mtext>
+        <mi>(</mi>
+        <msub><mi>P</mi><mi>s</mi></msub>
+        <mo>,</mo>
+        <mspace width="0.2em" />
+        <mi>r</mi>
+        <mi>)</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mo>|</mo>
+            <mi>A</mi><mo>·</mo><msub><mi>x</mi><mn>0</mn></msub>
+            <mo>+</mo>
+            <mi>B</mi><mo>·</mo><msub><mi>y</mi><mn>0</mn></msub>
+            <mo>+</mo>
+            <mi>C</mi>
+            <mo>|</mo>
+          </mrow>
+          <msqrt>
+            <mrow>
+              <msup><mi>A</mi><mn>2</mn></msup>
+              <mo>+</mo>
+              <msup><mi>B</mi><mn>2</mn></msup>
+            </mrow>
+          </msqrt>
+        </mfrac>
+      </mrow>
+    </math>
+  </p>
+</div>
+            </ul>
+          </article>
+        </li>
+
+        <ul>
+        <li>
+          <article>
+            <h4><strong> Incidentens o secants (es tallen) </strong></h4> 
+         <ul>
+              <li>Les dues rectes no tenen la mateixa direcció.</li>
+              <li>El sistema format per les dues rectes té solució única (x = a, y = b).</li>
+              <li>La intersecció és un punt (solució del sistema).</li>
+              <li>L'angle que formen es calcula amb el producte escalar dels seus vectors directors.</li>
+              <li>La distància és 0.</li>
+            </ul>
+          </article>
+        </li>
+      </ol>
+    </section>
+  </div>
+
+
+<section class="card">
+  <h2>6. Inequacions (equacions de semiplans)</h2>
+  <ul>
+  <p>Per resoldre una inequació de primer grau amb dues incògnites, ho hem de fer <strong> <a href="https://www.geogebra.org/graphing/wtj7kbtf">  gràficament </a></strong>.</p>
+  
+  <div class="math-block">
+    <div class="formula-box">
+    <ul>
+      <li>ax + by &lt; c</li>
+      <li>ax + by &le; c</li>
+      <li>ax + by &gt; c</li>
+      <li>ax + by &ge; c</li>
+    </ul>
+    </div>
+  </div>
+
+  <p>En qualsevol dels casos anteriors hem de començar representant la recta: <strong>ax + by = c</strong><p>Pasos</p></p> 
+</ol>
+  <ol>
+    <li>
+      <strong>Representar la recta (ax + by = c):</strong><br>
+      Es fa una taula de valors amb dos punts (preferiblement els punts de tall amb els eixos).<br>
+      <em>Nota:</em> Si la recta és horitzontal (<code>y = c</code>) o vertical (<code>x = c</code>), no cal fer taula i es pot dibuixar directament.
+    </li>
+    <li>
+      <strong>Determinar el semiplà solució:</strong><br>
+      S'agafa un punt d'un dels semiplans per veure si verifica la inequació i es marca com a resposta aquest semiplà o l'altre, incloent o no la recta segons si la desigualtat és estricta (<code>&lt;</code>, <code>&gt;</code>) o no (<code>&le;</code>, <code>&ge;</code>).
+    </li>
+  </article>
+        </li>
+      </ol>
+    </section>
+  </div>
 </main>
-</body>
-</html>
